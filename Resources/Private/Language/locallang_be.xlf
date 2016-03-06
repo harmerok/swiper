@@ -12,6 +12,28 @@
 			<trans-unit id="slider_plus_wiz_description">
 				<source>Add a Swiper image slider to your page.</source>
 			</trans-unit>
+
+            <!-- General plugin settings -->
+            <trans-unit id="flexform.slider.sheet.action">
+                <source>General</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.action">
+                <source>Show</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.action.show">
+                <source>Slider</source>
+            </trans-unit>
+
+            <!-- CSS options -->
+            <trans-unit id="flexform.slider.sheet.css">
+                <source>CSS options</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.css.id">
+                <source>CSS id of the content element to reference it (optional)</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.css.class">
+                <source>CSS class of the content element to reference it (optional)</source>
+            </trans-unit>
 		</body>
 	</file>
 </xliff>

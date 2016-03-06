@@ -4,19 +4,19 @@
         <general>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>LLL:EXT:swiper/Resources/Private/Language/locallang_db.xlf:flexform.slider.sheet.action</sheetTitle>
+                    <sheetTitle>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.sheet.action</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>
                     <switchableControllerActions>
                         <TCEforms>
-                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_db.xlf:flexform.slider.label.action</label>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.action</label>
                             <onChange>reload</onChange>
                             <config>
                                 <type>select</type>
                                 <items type="array">
                                     <numIndex index="10" type="array">
-                                        <numIndex index="0">LLL:EXT:swiper/Resources/Private/Language/locallang_db.xlf:flexform.slider.action.show</numIndex>
+                                        <numIndex index="0">LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.action.show</numIndex>
                                         <numIndex index="1">Slider->show</numIndex>
                                     </numIndex>
                                 </items>
@@ -26,5 +26,40 @@
                 </el>
             </ROOT>
         </general>
+
+        <cssSheet>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.sheet.css</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.css.id>
+                        <TCEforms>
+                            <exclude>0</exclude>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.css.id</label>
+                            <config>
+                                <type>input</type>
+                                <default></default>
+                                <eval>trim</eval>
+                                <size>5</size>
+                            </config>
+                        </TCEforms>
+                    </settings.css.id>
+                    <settings.css.class>
+                        <TCEforms>
+                            <exclude>0</exclude>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.css.class</label>
+                            <config>
+                                <type>input</type>
+                                <default></default>
+                                <eval>trim</eval>
+                                <size>5</size>
+                            </config>
+                        </TCEforms>
+                    </settings.css.class>
+                </el>
+            </ROOT>
+        </cssSheet>
     </sheets>
 </T3DataStructure>
