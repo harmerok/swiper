@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="slider" date="2016-03-05T17:20:00+01:00">
+		<header/>
+		<body>
+			<trans-unit id="flexform.slider.sheet.action">
+				<source>Action Sheet</source>
+			</trans-unit>
+			<trans-unit id="flexform.slider.label.action">
+				<source>Action Label</source>
+			</trans-unit>
+			<trans-unit id="flexform.slider.action.show">
+				<source>Show Slider</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
