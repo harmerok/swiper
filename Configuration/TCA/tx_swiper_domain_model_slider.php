@@ -24,7 +24,7 @@ return array(
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ),
-        'iconfile' => ExtensionManagementUtility::extRelPath(Div::extKey) . 'Resources/Public/Icons/tx_swiper_domain_model_slider.svg',
+        'iconfile' => ExtensionManagementUtility::extRelPath(Div::extKey) . 'ext_icon.png',
         'searchFields' => 'isbn, title, identifier'
     ),
     'interface' => array(

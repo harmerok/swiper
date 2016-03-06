@@ -7,10 +7,10 @@
 				<source>Action Sheet</source>
 			</trans-unit>
 			<trans-unit id="flexform.slider.label.action">
-				<source>Action Label</source>
+				<source>Show</source>
 			</trans-unit>
 			<trans-unit id="flexform.slider.action.show">
-				<source>Show Slider</source>
+				<source>Slider</source>
 			</trans-unit>
 		</body>
 	</file>
