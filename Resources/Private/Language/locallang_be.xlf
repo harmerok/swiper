@@ -24,9 +24,26 @@
                 <source>Slider</source>
             </trans-unit>
 
-            <!-- CSS options -->
-            <trans-unit id="flexform.slider.sheet.css">
-                <source>CSS options</source>
+            <!-- Slider elements -->
+            <trans-unit id="flexform.slider.sheet.elements">
+                <source>Slider elements</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.image">
+                <source>Image</source>
+            </trans-unit>
+
+            <!-- Slider options -->
+            <trans-unit id="flexform.slider.sheet.options">
+                <source>Slider options</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.pagination">
+                <source>Enable slider pagination</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.buttons">
+                <source>Enable slider buttons</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.scrollbar">
+                <source>Enable slider scrollbar</source>
             </trans-unit>
             <trans-unit id="flexform.slider.label.css.id">
                 <source>CSS id of the content element to reference it (optional)</source>

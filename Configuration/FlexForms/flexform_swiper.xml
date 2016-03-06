@@ -27,13 +27,85 @@
             </ROOT>
         </general>
 
-        <cssSheet>
+        <sliderElementsSheet>
             <ROOT>
                 <TCEforms>
-                    <sheetTitle>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.sheet.css</sheetTitle>
+                    <sheetTitle>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.sheet.elements</sheetTitle>
                 </TCEforms>
                 <type>array</type>
                 <el>
+                    <settings.slider.images>
+                        <TCEforms>
+                            <label>LLL:EXT:slider/Resources/Private/Language/locallang_be:flexform.slider.label.image</label>
+                            <config>
+                                <type>inline</type>
+                                <maxitems>99</maxitems>
+                                <foreign_table>sys_file_reference</foreign_table>
+                                <!--<foreign_field>uid_foreign</foreign_field>-->
+                                <foreign_table_field>tablenames</foreign_table_field>
+                                <foreign_label>uid_local</foreign_label>
+                                <foreign_sortby>sorting_foreign</foreign_sortby>
+                                <foreign_selector>uid_local</foreign_selector>
+                                <foreign_selector_fieldTcaOverride type="array">
+                                    <config>
+                                        <appearance>
+                                            <elementBrowserType>file</elementBrowserType>
+                                            <elementBrowserAllowed>jpg,png,gif</elementBrowserAllowed>
+                                        </appearance>
+                                    </config>
+                                </foreign_selector_fieldTcaOverride>
+                                <foreign_match_fields type="array">
+                                    <fieldname>image</fieldname>
+                                </foreign_match_fields>
+                                <appearance type="array">
+                                    <newRecordLinkAddTitle>1</newRecordLinkAddTitle>
+                                    <headerThumbnail>
+                                        <field>uid_local</field>
+                                        <height>64</height>
+                                        <width>64</width>
+                                    </headerThumbnail>
+                                </appearance>
+                            </config>
+                        </TCEforms>
+                    </settings.slider.images>
+                </el>
+            </ROOT>
+        </sliderElementsSheet>
+
+        <sliderOptions>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.sheet.options</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.pagination>
+                        <TCEforms>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.pagination</label>
+                            <config>
+                                <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </settings.pagination>
+
+                    <settings.buttons>
+                        <TCEforms>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.buttons</label>
+                            <config>
+                                <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </settings.buttons>
+
+                    <settings.scrollbar>
+                        <TCEforms>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.scrollbar</label>
+                            <config>
+                                <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </settings.scrollbar>
+
                     <settings.css.id>
                         <TCEforms>
                             <exclude>0</exclude>
@@ -46,6 +118,7 @@
                             </config>
                         </TCEforms>
                     </settings.css.id>
+
                     <settings.css.class>
                         <TCEforms>
                             <exclude>0</exclude>
@@ -60,6 +133,6 @@
                     </settings.css.class>
                 </el>
             </ROOT>
-        </cssSheet>
+        </sliderOptions>
     </sheets>
 </T3DataStructure>

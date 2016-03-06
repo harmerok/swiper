@@ -4,12 +4,14 @@
     <f:layout name="Swiper" />
 
     <f:section name="Main">
-        <div class="swiper-container">
+        <div class="swiper-container" id="swiper-container-{record.uid}">
             <div class="swiper-wrapper">
                 <!-- Slides -->
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
+                <f:for each="{sliderItems}" as="item">
+                    <div class="swiper-slide">
+                        <f:image src="{item.file}" height="800c" width="1200c"/>
+                    </div>
+                </f:for>
             </div>
 
             <f:if condition="{settings.pagination}">
@@ -25,6 +27,22 @@
                 <div class="swiper-scrollbar"></div>
             </f:if>
         </div>
+        <script>
+            var swiper_pagination = {f:if(condition: settings.pagination, then: '".swiper-pagination"', else: 'null')};
+            var swiper_nextButton = {f:if(condition: settings.buttons, then: '".swiper-button-next"', else: 'null')};
+            var swiper_prevButton = {f:if(condition: settings.buttons, then: '".swiper-button-prev"', else: 'null')};
+            var swiper_scrollbar  = {f:if(condition: settings.scrollbar, then: '".swiper-scrollbar"', else: 'null')};
+            var swiper_{record.uid} = new Swiper ('#swiper-container-{record.uid}', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+
+                pagination: swiper_pagination,
+                nextButton: swiper_nextButton,
+                prevButton: swiper_prevButton,
+                scrollbar:  swiper_scrollbar,
+            })
+        </script>
         <!-- @todo Place JavaScript for this slider after the element! -->
     </f:section>
 </div>
