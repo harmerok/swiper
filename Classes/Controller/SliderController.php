@@ -23,8 +23,12 @@ class SliderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function showAction()
     {
-        $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/bower_components/Swiper/dist/js/swiper.min.js');
-        $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/bower_components/Swiper/dist/css/swiper.min.css');
+        $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/Scripts/JS/swiper.min.js');
+        $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/Styles/CSS/swiper.min.css');
+        $contentObj = $this->configurationManager->getContentObject();
+
+        $sliderCssId = $this->settings['css']['id'] ? $this->settings['css']['id'] : 'swiper-container-' . $contentObj->data['uid'];
+        $this->view->assign('cssId', $sliderCssId);
 
         /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
         $resourceFactory = GeneralUtility::makeInstance('TYPO3\CMS\Core\Resource\ResourceFactory');
@@ -47,6 +51,28 @@ class SliderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $this->view->assign('sliderItems', $sliderItems);
 
         $contentObj = $this->configurationManager->getContentObject();
-        $this->view->assign('record', $contentObj->data);
+
+        $javaScript = "
+            var swiper_" . $contentObj->data['uid'] ." = new Swiper ('#" . $sliderCssId . "', {
+                direction: 'horizontal',
+                loop: " . ($this->settings['loop'] ? 'true' : 'false') . ",";
+
+        if ($this->settings['pagination']) {
+            $javaScript .= "pagination: '.swiper-pagination',";
+        }
+
+        if ($this->settings['buttons']) {
+            $javaScript .= "nextButton: '.swiper-button-next',";
+            $javaScript .= "prevButton: '.swiper-button-prev',";
+        }
+
+        if ($this->settings['scrollbar']) {
+            $javaScript .= "pagination: '.swiper-scrollbar',";
+        }
+
+        $javaScript .= "
+            })
+        ";
+        $this->view->assign('script', '<script>' . $javaScript . '</script>');
     }
 }

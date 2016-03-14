@@ -37,13 +37,19 @@
                 <source>Slider options</source>
             </trans-unit>
             <trans-unit id="flexform.slider.label.pagination">
-                <source>Enable slider pagination</source>
+                <source>Enable pagination</source>
             </trans-unit>
             <trans-unit id="flexform.slider.label.buttons">
-                <source>Enable slider buttons</source>
+                <source>Enable buttons</source>
             </trans-unit>
             <trans-unit id="flexform.slider.label.scrollbar">
-                <source>Enable slider scrollbar</source>
+                <source>Enable scrollbar</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.loop">
+                <source>Enable continuous loop mode</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.autoplay">
+                <source>Delay between transitions (in ms). If this parameter is not specified, auto play will be disabled</source>
             </trans-unit>
             <trans-unit id="flexform.slider.label.css.id">
                 <source>CSS id of the content element to reference it (optional)</source>

@@ -106,6 +106,26 @@
                         </TCEforms>
                     </settings.scrollbar>
 
+                    <settings.loop>
+                        <TCEforms>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.loop</label>
+                            <config>
+                                <type>check</type>
+                            </config>
+                        </TCEforms>
+                    </settings.loop>
+
+                    <settings.autoplay>
+                        <TCEforms>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.autoplay</label>
+                            <config>
+                                <type>input</type>
+                                <eval>int</eval>
+                                <size>5</size>
+                            </config>
+                        </TCEforms>
+                    </settings.autoplay>
+
                     <settings.css.id>
                         <TCEforms>
                             <exclude>0</exclude>
