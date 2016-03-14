@@ -28,7 +28,7 @@ class SliderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $contentObj = $this->configurationManager->getContentObject();
 
         $sliderCssId = $this->settings['css']['id'] ? $this->settings['css']['id'] : 'swiper-container-' . $contentObj->data['uid'];
-        $this->view->assign('cssId', $sliderCssId);
+        $this->view->assign('sliderCssId', $sliderCssId);
 
         /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
         $resourceFactory = GeneralUtility::makeInstance('TYPO3\CMS\Core\Resource\ResourceFactory');
