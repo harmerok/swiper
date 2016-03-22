@@ -1,0 +1,10 @@
+plugin.tx_swiper {
+	settings {
+		show {
+			image {
+				height = 1400c
+				width  = 750c
+			}
+		}
+	}
+}

@@ -9,7 +9,7 @@
                 <!-- Slides -->
                 <f:for each="{sliderItems}" as="item">
                     <div class="swiper-slide">
-                        <f:image src="{item.file}" height="800c" width="1200c"/>
+                        <f:image src="{item.file}" height="{settings.show.image.height}" width="{settings.show.image.width}"/>
                     </div>
                 </f:for>
             </div>

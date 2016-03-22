@@ -1,0 +1,10 @@
+plugin.tx_swiper {
+	settings {
+		show {
+			image {
+				height = {$plugin.tx_swiper.settings.show.image.height}
+				width  = {$plugin.tx_swiper.settings.show.image.width}
+			}
+		}
+	}
+}
