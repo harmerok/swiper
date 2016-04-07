@@ -1,0 +1,2 @@
+# cat=basic/enable; type=boolean; label=Always include JS and CSS:If this option is enabled the JavaScript and CSS files of Swiper will always be loaded, even if there is no Swiper content on the page. This setting may be useful if you want to use Swiper in your own extension.
+includeAlways = 0

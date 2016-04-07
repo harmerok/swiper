@@ -8,3 +8,10 @@ plugin.tx_swiper {
 		}
 	}
 }
+
+[Hirnschmalz\Swiper\TypoScript\Condition\IncludeLibsCondition]
+	page {
+		includeCSSLibs.swiper = EXT:swiper/Resources/Public/Styles/CSS/swiper.min.css
+		includeJSLibs.swiper  = EXT:swiper/Resources/Public/Scripts/JS/swiper.min.js
+	}
+[END]

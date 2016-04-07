@@ -25,4 +25,9 @@ class Div
      */
     const extKey = 'swiper';
 
+    /**
+     * Extension configuration name for includeAlways
+     */
+    const extConfig_includeAlways = "includeAlways";
+
 }

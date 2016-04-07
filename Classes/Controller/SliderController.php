@@ -23,8 +23,13 @@ class SliderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
      */
     public function showAction()
     {
-        $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/Scripts/JS/swiper.min.js');
-        $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/Styles/CSS/swiper.min.css');
+        $extConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['swiper']);
+        
+        if (is_array($extConfig) && !$extConfig[Div::extConfig_includeAlways]) {
+            $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/Scripts/JS/swiper.min.js');
+            $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/Styles/CSS/swiper.min.css');
+        }
+
         $contentObj = $this->configurationManager->getContentObject();
 
         $sliderCssId = $this->settings['css']['id'] ? $this->settings['css']['id'] : 'swiper-container-' . $contentObj->data['uid'];
