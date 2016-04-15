@@ -9,7 +9,7 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Conf
 ExtensionUtility::registerPlugin(
     Div::vendorNamespace . '.' . $_EXTKEY,
     'Slider',
-    'Slider plugin description'
+    'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang_be:title'
 );
 
 if (TYPO3_MODE === 'BE') {
