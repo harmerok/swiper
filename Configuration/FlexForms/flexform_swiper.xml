@@ -34,40 +34,19 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
-                    <settings.slider.images>
+                    <settings.slider.slides>
                         <TCEforms>
-                            <label>LLL:EXT:slider/Resources/Private/Language/locallang_be:flexform.slider.label.image</label>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.slides</label>
                             <config>
                                 <type>inline</type>
-                                <maxitems>99</maxitems>
-                                <foreign_table>sys_file_reference</foreign_table>
-                                <!--<foreign_field>uid_foreign</foreign_field>-->
-                                <foreign_table_field>tablenames</foreign_table_field>
-                                <foreign_label>uid_local</foreign_label>
-                                <foreign_sortby>sorting_foreign</foreign_sortby>
-                                <foreign_selector>uid_local</foreign_selector>
-                                <foreign_selector_fieldTcaOverride type="array">
-                                    <config>
-                                        <appearance>
-                                            <elementBrowserType>file</elementBrowserType>
-                                            <elementBrowserAllowed>jpg,png,gif</elementBrowserAllowed>
-                                        </appearance>
-                                    </config>
-                                </foreign_selector_fieldTcaOverride>
-                                <foreign_match_fields type="array">
-                                    <fieldname>image</fieldname>
-                                </foreign_match_fields>
-                                <appearance type="array">
-                                    <newRecordLinkAddTitle>1</newRecordLinkAddTitle>
-                                    <headerThumbnail>
-                                        <field>uid_local</field>
-                                        <height>64</height>
-                                        <width>64</width>
-                                    </headerThumbnail>
+                                <maxitems>20</maxitems>
+                                <foreign_table>tx_swiper_domain_model_slide</foreign_table>
+                                <appearance>
+                                    <collapseAll>true</collapseAll>
                                 </appearance>
                             </config>
                         </TCEforms>
-                    </settings.slider.images>
+                    </settings.slider.slides>
                 </el>
             </ROOT>
         </sliderElementsSheet>
@@ -79,6 +58,50 @@
                 </TCEforms>
                 <type>array</type>
                 <el>
+                    <settings.height>
+                        <TCEforms>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.height</label>
+                            <onChange>reload</onChange>
+                            <config>
+                                <type>select</type>
+                                <items type="array">
+                                    <numIndex index="10" type="array">
+                                        <numIndex index="0">LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.height.default</numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                    <numIndex index="20" type="array">
+                                        <numIndex index="0">LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.height.fixed</numIndex>
+                                        <numIndex index="1">fixed</numIndex>
+                                    </numIndex>
+                                    <numIndex index="30" type="array">
+                                        <numIndex index="0">LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.height.auto</numIndex>
+                                        <numIndex index="1">auto</numIndex>
+                                    </numIndex>
+                                    <numIndex index="40" type="array">
+                                        <numIndex index="0">LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.height.autoMin</numIndex>
+                                        <numIndex index="1">autoMin</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.height>
+
+                    <settings.heightPixel>
+                        <TCEforms>
+                            <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.heightPixel</label>
+                            <!--<displayCond>-->
+                                <!--<OR>-->
+                                    <!--<numIndex index="0"><![CDATA[FIELD:sliderOptions.settings.height:=:fixed]]></numIndex>-->
+                                    <!--<numIndex index="1"><![CDATA[FIELD:sliderOptions.settings.height:=:autoMin]]></numIndex>-->
+                                <!--</OR>-->
+                            <!--</displayCond>-->
+                            <config>
+                                <type>input</type>
+                                <eval>int,required</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.heightPixel>
+
                     <settings.pagination>
                         <TCEforms>
                             <label>LLL:EXT:swiper/Resources/Private/Language/locallang_be:flexform.slider.label.pagination</label>

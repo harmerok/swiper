@@ -1,7 +1,7 @@
 #
-# Table structure for table 'tx_swiper_domain_model_slider'
+# Table structure for table 'tx_swiper_domain_model_slide'
 #
-CREATE TABLE tx_swiper_domain_model_slider (
+CREATE TABLE tx_swiper_domain_model_slide (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
@@ -28,7 +28,8 @@ CREATE TABLE tx_swiper_domain_model_slider (
   l10n_parent int(11) DEFAULT '0' NOT NULL,
   l10n_diffsource mediumblob,
 
-	images varchar(255) DEFAULT '' NOT NULL,
+	image varchar(255) DEFAULT '' NOT NULL,
+	content text DEFAULT '' NOT NULL,
 
 	PRIMARY KEY (uid),
   KEY parent (pid),

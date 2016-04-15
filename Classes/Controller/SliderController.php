@@ -14,9 +14,27 @@ class SliderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
 {
     /**
      * @var \TYPO3\CMS\Core\Page\PageRenderer
-     * @inject
      */
     protected $pageRenderer;
+
+    /**
+     * @var \Hirnschmalz\Swiper\Domain\Repository\SlideRepository
+     */
+    protected $slideRepository;
+
+    /**
+     * @param \TYPO3\CMS\Core\Page\PageRenderer $pageRenderer
+     */
+    public function injectPageRenderer(\TYPO3\CMS\Core\Page\PageRenderer $pageRenderer) {
+        $this->pageRenderer = $pageRenderer;
+    }
+
+    /**
+     * @param \Hirnschmalz\Swiper\Domain\Repository\SliderRepository $slideRepository
+     */
+    public function injectSlideRepository(\Hirnschmalz\Swiper\Domain\Repository\SlideRepository $slideRepository) {
+        $this->slideRepository = $slideRepository;
+    }
 
     /**
      * Show the slider
@@ -30,37 +48,58 @@ class SliderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
             $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/Styles/CSS/swiper.min.css');
         }
 
-        $contentObj = $this->configurationManager->getContentObject();
+        /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
+        $resourceFactory = GeneralUtility::makeInstance('TYPO3\CMS\Core\Resource\ResourceFactory');
+        $slides = array();
+        $slideUids = $this->settings['slider']['slides'];
+        $slideUids = explode(',', $slideUids);
 
+        foreach ($slideUids as $slideUid) {
+            array_push($slides, $this->slideRepository->findByUid($slideUid));
+        }
+
+        $this->view->assign('slides', $slides);
+
+        $contentObj = $this->configurationManager->getContentObject();
         $sliderCssId = $this->settings['css']['id'] ? $this->settings['css']['id'] : 'swiper-container-' . $contentObj->data['uid'];
         $this->view->assign('sliderCssId', $sliderCssId);
 
-        /** @var \TYPO3\CMS\Core\Resource\ResourceFactory $resourceFactory */
-        $resourceFactory = GeneralUtility::makeInstance('TYPO3\CMS\Core\Resource\ResourceFactory');
-        $sliderItems = array();
-        $sliderItemUids = $this->settings['slider']['images'];
-        $sliderItemUids = explode(',', $sliderItemUids);
-
-        if(!empty($sliderItemUids)){
-            $arraySize = sizeof($sliderItemUids);
-            for($i = 0; $i < $arraySize; $i++){
-
-                $itemUid = $sliderItemUids[$i];
-
-                $fileReference = $resourceFactory->getFileReferenceObject($itemUid);
-                $fileArray = $fileReference->getProperties();
-                array_push($sliderItems, $fileArray);
-            }
+        $sliderCssClass = '';
+        if ($this->settings['pagination']) {
+            $sliderCssClass .= ' swiper-with-pagination';
         }
 
-        $this->view->assign('sliderItems', $sliderItems);
+        if ($this->settings['buttons']) {
+            $sliderCssClass .= ' swiper-with-buttons';
+        }
 
-        $contentObj = $this->configurationManager->getContentObject();
+        if ($this->settings['scrollbar']) {
+            $sliderCssClass .= ' swiper-with-scrollbar';
+        }
+
+        $this->view->assign('sliderCssClass', $sliderCssClass);
+
+        $pixels = ('fixed' == $this->settings['height'] || 'autoMin' == $this->settings['height']) ? $this->settings['heightPixel'] : FALSE;
+        if ($pixels) {
+            switch ($this->settings['height']) {
+                case 'autoMin':
+                    $pixelsCss = 'min-height';
+                    break;
+
+                default:
+                    $pixelsCss = 'height';
+                    break;
+
+            }
+            $this->view->assign('slideCss', "$pixelsCss: ${pixels}px;");
+        }
 
         $javaScript = "
             var swiper_" . $contentObj->data['uid'] ." = new Swiper ('#" . $sliderCssId . "', {
                 direction: 'horizontal',
-                loop: " . ($this->settings['loop'] ? 'true' : 'false') . ",";
+                autoHeight: " . ('auto' == $this->settings['height'] || 'autoMin' == $this->settings['height'] ? 'true' : 'false') . "," .
+                ('fixed' == $this->settings['height'] ? 'height: ' . $pixels . ',' : '') .
+                "loop: " . ($this->settings['loop'] ? 'true' : 'false') . ",";
 
         if ($this->settings['pagination']) {
             $javaScript .= "pagination: '.swiper-pagination',";

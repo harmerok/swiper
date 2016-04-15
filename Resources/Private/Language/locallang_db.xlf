@@ -3,6 +3,15 @@
 	<file source-language="en" datatype="plaintext" original="messages" product-name="slider" date="2016-03-05T17:20:00+01:00">
 		<header/>
 		<body>
+			<trans-unit id="tx_swiper_domain_model_slide">
+				<source>Content for the current slide</source>
+			</trans-unit>
+			<trans-unit id="tx_swiper_domain_model_slide.image">
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_swiper_domain_model_slide.content">
+				<source>Text</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

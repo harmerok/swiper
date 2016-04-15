@@ -10,7 +10,7 @@
 				<source>Swiper slider</source>
 			</trans-unit>
 			<trans-unit id="slider_plus_wiz_description">
-				<source>Add a Swiper image slider to your page.</source>
+				<source>Add a Swiper slider to your page.</source>
 			</trans-unit>
 
             <!-- General plugin settings -->
@@ -28,13 +28,31 @@
             <trans-unit id="flexform.slider.sheet.elements">
                 <source>Slider elements</source>
             </trans-unit>
-            <trans-unit id="flexform.slider.label.image">
-                <source>Image</source>
+            <trans-unit id="flexform.slider.label.slides">
+                <source>Slides</source>
             </trans-unit>
 
             <!-- Slider options -->
             <trans-unit id="flexform.slider.sheet.options">
                 <source>Slider options</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.height">
+                <source>Height</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.height.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.height.fixed">
+                <source>Fixed height in pixels</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.height.auto">
+                <source>Auto height for each slide</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.height.autoMin">
+                <source>Auto height for each slide with minimum height in pixels</source>
+            </trans-unit>
+            <trans-unit id="flexform.slider.label.heightPixel">
+                <source>Height in pixels based on the settings of above</source>
             </trans-unit>
             <trans-unit id="flexform.slider.label.pagination">
                 <source>Enable pagination</source>
