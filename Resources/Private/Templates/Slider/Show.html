@@ -7,7 +7,9 @@
         <div class="swiper-container{sliderCssClass}" id="{sliderCssId}">
             <div class="swiper-wrapper">
                 <f:for each="{slides}" as="slide">
-                    <div class="swiper-slide" style="{slideCss}{f:if(condition: slide.image, then: 'background-image: url({f:uri.image(image: slide.image, height: settings.show.image.height, width: settings.show.image.width)})')};">
+                    <div class="swiper-slide" style="{slideCss}">
+
+                        <img {f:if(condition: slide.image, then: 'src= {f:uri.image(image: slide.image)}')}>
                         <f:if condition="{slide.content}">
                             <div class="overlay"></div>
                             <div class="content">{slide.content -> f:format.html()}</div>
