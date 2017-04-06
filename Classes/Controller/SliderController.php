@@ -42,7 +42,7 @@ class SliderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
     public function showAction()
     {
         $extConfig = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['swiper']);
-        
+
         if (is_array($extConfig) && !$extConfig[Div::extConfig_includeAlways]) {
             $this->pageRenderer->addJsFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/Scripts/JS/swiper.min.js');
             $this->pageRenderer->addCssFile(ExtensionManagementUtility::siteRelPath(Div::extKey) . 'Resources/Public/Styles/CSS/swiper.min.css');
@@ -77,6 +77,7 @@ class SliderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
             $sliderCssClass .= ' swiper-with-scrollbar';
         }
 
+
         $this->view->assign('sliderCssClass', $sliderCssClass);
 
         $pixels = ('fixed' == $this->settings['height'] || 'autoMin' == $this->settings['height']) ? $this->settings['heightPixel'] : FALSE;
@@ -97,6 +98,7 @@ class SliderController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControlle
         $javaScript = "
             var swiper_" . $contentObj->data['uid'] ." = new Swiper ('#" . $sliderCssId . "', {
                 direction: 'horizontal',
+                autoplay: ". $this->settings['autoplay'] .",
                 autoHeight: " . ('auto' == $this->settings['height'] || 'autoMin' == $this->settings['height'] ? 'true' : 'false') . "," .
                 ('fixed' == $this->settings['height'] ? 'height: ' . $pixels . ',' : '') .
                 "loop: " . ($this->settings['loop'] ? 'true' : 'false') . ",";
